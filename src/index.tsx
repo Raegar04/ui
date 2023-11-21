@@ -3,14 +3,29 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { TournamentList } from './Components/Tournaments/List';
+import {CombatsList} from './Components/Combats/List';
+import { RoundsList } from './Components/Rounds/List';
+import { Register, Login, ShowAuthChoices } from './Components/Account/Register';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+    <App>
+      <Routes>
+        <Route path='/' element={<ShowAuthChoices/>}></Route>
+        <Route path='/Register' element={<Register/>}></Route>
+        <Route path='/Login' element={<Login/>}></Route>
+        <Route path='/Tournament' element={<TournamentList/>} />
+        <Route path='/:tournamentId?/Round' element={<RoundsList/>}/>
+        <Route path='/:tournamentId?/:roundId?/Combat' element={<CombatsList/>}/>
+      </Routes>
+    </App>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,25 +1,20 @@
-import React from 'react';
+import React, { Fragment, ReactNode, useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Routes, NavLink} from 'react-router-dom';
+import { TournamentList } from './Components/Tournaments/List';
+import { Tournament } from './models';
+import Header from './Components/Header/Header';
 
-function App() {
+
+
+function App({children}:{children:ReactNode}) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header />
+      {children}
+    </Fragment>
   );
 }
 
