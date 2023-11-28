@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { TournamentList } from './Components/Tournaments/List';
 import {CombatsList} from './Components/Combats/List';
 import { RoundsList } from './Components/Rounds/List';
-import { Register, Login, ShowAuthChoices } from './Components/Account/Register';
+import Register from './Components/Account/Registration/Registration';
+import { Login } from './Components/Account/Authentication/Authentication';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,7 +18,6 @@ root.render(
   <BrowserRouter>
     <App>
       <Routes>
-        <Route path='/' element={<ShowAuthChoices/>}></Route>
         <Route path='/Register' element={<Register/>}></Route>
         <Route path='/Login' element={<Login/>}></Route>
         <Route path='/Tournament' element={<TournamentList/>} />
